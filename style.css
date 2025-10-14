@@ -1,0 +1,682 @@
+/********************
+ * CSS
+ ********************/
+
+/* Mantém variáveis de cor originais */
+/* Paleta de cores extraída do cartaz do evento */
+:root {
+  --bg: #3a2d21;       /* Cor de fundo (marrom escuro da madeira) */
+  --panel: #4f3f32;    /* Cor dos painéis e cards (tom de marrom médio) */
+  --accent: #f7b633;    /* Cor principal de destaque (dourado/amarelo das luzes) */
+  --accent-2: #ffd56b; /* Cor secundária de destaque (dourado mais claro para gradientes) */
+  --text: #f5e9d3;      /* Cor do texto principal (bege claro / cor de pergaminho) */
+  --muted: #c2b299;     /* Cor de textos secundários (bege mais escuro e sutil) */
+  --danger: #ff6b6b;    /* Mantive o vermelho, pois é uma cor universal para alertas/desclassificados */
+  --gold: #f7b633;      /* Cor dos prêmios, alinhada com o novo dourado principal */
+}
+
+/* Formatação padrão para todos os slides */
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  background: radial-gradient(1000px 600px at 10% -10%, #1a2b1f 0%, transparent 60%),
+    radial-gradient(1200px 700px at 110% 110%, #1a2b1f 0%, transparent 60%),
+    var(--bg);
+  color: var(--text);
+  overflow: hidden;
+}
+
+/* Cabeçalho */
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, rgba(32, 26, 19, 0.9), rgb(108, 61, 21));
+  border-bottom: 1px solid rgba(255, 255, 255, .05);
+}
+
+.header-main { 
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; /* Alinha a logo e o texto verticalmente */
+    gap: 20px;           /* Cria um espaço entre a logo e o texto */
+}
+
+.logo-organizador img {
+    height: 100px;       /* Define a altura da logo no desktop */
+    display: block;      /* Remove qualquer espaço extra indesejado abaixo da imagem */
+}
+
+/*título e subtítulo*/
+header .title-evento{
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-weight: 800;
+  letter-spacing: .5px;
+  font-size: clamp(18px, 3vw, 36px);
+}
+
+.subtitle {
+  opacity: .85;
+  font-size: clamp(12px, 2vw, 18px);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .2)
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent)
+}
+
+.right {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 58px;
+  align-items: center;
+}
+
+/*relógio*/
+.clock {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  opacity: .9;
+  font-size: clamp(14px, 2.5vw, 20px)
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, .08);
+  color: var(--text);
+  cursor: pointer;
+  font-size: clamp(12px, 2vw, 16px)
+}
+
+.btn:hover {
+  filter: brightness(1.1)
+}
+
+/*controle dos botões das ordenhas*/
+.ordenhas-control {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.ordenhas-control .ordenha-btn {
+  padding: 2px 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--muted);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.ordenhas-control .ordenha-btn:hover {
+  background-color: var(--muted);
+  color: var(--bg);
+}
+
+.ordenhas-control .ordenha-btn.active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--panel);
+  font-weight: bold;
+}
+
+.ordenhas-control .ordenha-btn.ready {
+  opacity: 1;
+}
+
+.hidden{
+  display: none !important;
+}
+
+/* Slides */
+.slides {
+  position: relative;
+  height: calc(100% - 80px);
+  display: flex;
+  flex-direction: column;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(.99) translateY(6px);
+  transition: opacity .6s ease, transform .6s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1) translateY(0)
+}
+
+.slide>.grid,
+.slide>.card {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+#slide-2 .rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#slide-3 .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  height: 100%;
+}
+
+#slide-3 h3 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#slide-4, #slide-5, #slide-6 {
+    display: none;
+}
+
+.desclassificada {
+  color: var(--danger) !important;
+  opacity: 0.9;
+  font-weight: bold;
+}
+
+.desclassificada-note {
+  font-size: 12px;
+  color: var(--danger);
+  margin-top: 4px;
+}
+
+.bar-danger {
+  background: linear-gradient(90deg, var(--danger), #ff9999);
+  box-shadow: 0 0 10px rgba(255, 107, 107, .35);
+}
+
+.grid {
+  display: grid;
+  gap: 12px
+}
+
+.metrics {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(233, 100, 12, 0.26), rgba(63, 44, 5, 0.185));
+  border: 1px solid rgba(255, 255, 255, .07);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .25)
+}
+
+.card h3 {
+  margin: 0 0 8px 0;
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--muted);
+  font-weight: 600
+}
+
+.card .value {
+  white-space: nowrap;
+  font-size: clamp(20px, 3.5vw, 48px);
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.card .hint {
+  margin-top: 6px;
+  font-size: clamp(11px, 1.5vw, 14px);
+  color: var(--muted)
+}
+
+.rank-list {
+  display: grid;
+  gap: 8px
+}
+
+.rank-item {
+  display: grid;
+  grid-template-columns: 40px 1fr 80px;
+  gap: 6px;
+  align-items: center;
+  font-size: clamp(12px, 2vw, 16px);
+  white-space: nowrap;
+}
+
+.bar {
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 10px rgba(29, 185, 84, .35)
+}
+
+.bar-wrap {
+  background: rgba(255, 255, 255, .06);
+  border-radius: 999px;
+  overflow: hidden
+}
+
+.awards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px
+}
+
+.award {
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 14px;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(20, 33, 24, .7), rgba(11, 22, 15, .7))
+}
+
+.medal {
+  font-size: clamp(28px, 6vw, 64px)
+}
+
+.partners-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  height: 100%;
+  align-items: start;
+  justify-content: center;
+}
+
+.partner-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 280px;
+  max-width: 400px;
+}
+
+.partner-column h3 {
+  margin-top: 46px;
+  font-size: clamp(20px, 2.5vw, 20px);
+  color: var(--text);
+  text-align: center;
+}
+
+.partner-column .logos {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner-column .logos img {
+  max-width: clamp(120px, 20vw, 200px);
+  height: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+.partner-column .realizacao img {
+  height: 150px;
+}
+
+/* ESTILOS PARA O SLIDE DE PATROCINIO */
+#slide-8 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    /* Centraliza verticalmente */
+    align-items: center;
+    /* Centraliza horizontalmente */
+    gap: 40px;
+}
+
+#slide-8 .sponsors-title {
+    font-size: clamp(32px, 4vw, 52px); 
+    /* Título maior */
+    margin: 0;
+    text-align: center;
+}
+
+#slide-8 .sponsors-logo-grid {
+    display: grid;
+    /* Cria 2 colunas no desktop, mas pode ser ajustado para mais */
+    grid-template-columns: 1fr 1fr; 
+    gap: 50px; 
+    /* Espaçamento grande entre as logos */
+    width: 80%; 
+    /* O grid ocupa 80% da largura da tela */
+    align-items: center; 
+    /* Centraliza as logos verticalmente em suas células */
+    justify-content: center;
+}
+
+#slide-8 .sponsors-logo-grid img {
+    width: 100%; 
+    /* A logo ocupa toda a largura da sua célula no grid */
+    max-height: 200px;
+    /* Limita a altura para logos não ficarem gigantes */
+    object-fit: contain; 
+    /* Mantém a proporção da logo */
+}
+
+/* ESTILOS PARA O SLIDE DE OFERECIMENTO*/
+#slide-9 {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+#slide-9 h3 {
+    /* Título maior e responsivo */
+    font-size: clamp(32px, 4vw, 52px); 
+    margin: 0; /* Remove para usar o 'gap'*/
+}
+
+#slide-9 .oferecimento-logo {
+    width: 100%;
+    text-align: center;
+}
+
+#slide-9 .oferecimento-logo img {
+    /* A imagem ocupará até 80% da largura ou 65% da altura da tela, o que for menor */
+    max-width: 80%;
+    max-height: 65vh;
+    height: auto; 
+    /* Mantém a proporção da imagem */
+    object-fit: contain;
+    /* Garante que a imagem não seja esticada ou cortada */
+}
+
+.ticker {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  background: linear-gradient(0deg, rgba(19, 32, 22, .95), rgba(19, 32, 22, .8));
+  border-top: 1px solid rgba(255, 255, 255, .06);
+  font-size: clamp(12px, 1.8vw, 16px);
+}
+
+.ticker .badge {
+  background: rgba(0, 0, 0, .35)
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 60s linear infinite
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-100%)
+  }
+}
+
+/**********************
+* Containers responsivos 
+**********************/
+#rank-cat-30,
+#rank-cat-40,
+#rank-cat-livre {
+  /* ATUALIZADO DE #rank-cat-50 */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  overflow: auto;
+}
+
+#rank-cat-30>div,
+#rank-cat-40>div,
+#rank-cat-livre>div {
+  /* ATUALIZADO DE #rank-cat-50 */
+  flex: 1 1 240px;
+  max-width: 350px;
+  box-sizing: border-box;
+}
+
+.rank-cat {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding-bottom: 5px;
+  overflow-y: auto;
+}
+
+.rank-cat>div {
+  flex: 1 1 240px;
+  max-width: 350px;
+  box-sizing: border-box;
+}
+
+.alvo-cat{
+  text-align: center;
+}
+
+
+/* RESPONSIVIDADE */
+@media (min-width: 1920px) {
+  .partner-column .logos img {
+    height: 140px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .partner-column .logos img {
+    height: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .right {
+    gap: 8px;
+  }
+
+.ordenhas-control {
+  display: flex;
+  gap: 8px;
+  }
+
+  .rank-cat {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .rank-cat>div {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header>div {
+    width: 100%;
+  }
+
+  .header img {
+    max-height: 60px;
+  }
+
+ .header-main {
+        flex-direction: column; /* Empilha a logo sobre o texto */
+        gap: 15px;              /* Ajusta o espaço vertical */
+        align-items: center;    /* Centraliza o bloco da logo e do texto */
+    }
+
+    .title-evento {
+        text-align: center;     /* Garante que todo o texto do evento fique centralizado */
+    }
+
+    .logo-organizador img {
+        height: 80px;           /* Define uma altura menor para a logo no mobile */
+    }
+
+  .right {
+    justify-content: center;
+  }
+
+  .rank-item {
+    grid-template-columns: 28px 1fr 60px;
+  }
+
+  /* Transforma em página de rolagem */
+  body {
+    overflow-y: auto !important;
+    overflow-x: hidden;
+  }
+
+  .slides {
+    position: static;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .slide {
+    position: static !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    margin-bottom: 24px;
+  }
+
+  #slide-3 .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  #slide-3 .grid .card {
+    width: 100%;
+  }
+
+  .awards{
+    color: #ff6b6b;
+  } 
+
+  .partner-column {
+    width: 100%;
+    max-width: none;
+    align-items: center;
+  }
+
+  .partner-column .logos img {
+    height: 50px !important;
+  }
+
+  .partner-column .realizacao img {
+    height: 100px;
+  }
+
+  .partner-column h3 {
+    color: var(--accent);
+  }
+
+  footer.ticker,
+  .ticker {
+    display: none !important;
+  }
+
+  #toggle-rotate {
+    display: none !important;
+  }
+
+/* --- PATROCINIO --- */
+@media (max-width: 768px) {
+    #slide-8 {
+        gap: 20px;
+        padding: 40px 15px;
+        /* Adiciona respiro vertical e horizontal */
+    }
+    
+    #slide-8 .sponsors-logo-grid {
+        width: 100%; 
+        /* Ocupa a largura total no mobile */
+        /* Mantém as 2 colunas, mas com espaçamento menor */
+        gap: 20px;
+    }
+
+    #slide-8 .sponsors-logo-grid img {
+        max-height: 100px; 
+        /* Diminui a altura máxima das logos no mobile */
+    }
+}
+
+  /* --- OFERECIMENTO --- */
+@media (max-width: 768px) {
+    #slide-9 {
+        /* No mobile, o slide já tem o comportamento de bloco, só ajustamos o espaçamento */
+        gap: 20px;
+        padding: 40px 0; /* Adiciona um respiro em cima e embaixo */
+    }
+
+    #slide-9 .oferecimento-logo img {
+        /* No mobile, a imagem ocupará 80% da largura da tela */
+        max-width: 80%;
+    }
+}
+
+}

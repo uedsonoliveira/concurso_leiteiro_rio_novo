@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="assets/logo-favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Concurso Leiteiro – Clube do Cavalo de Rio Novo do Sul</title>
+  <meta name="description"
+    content="Acompanhe em tempo real 2ª Exposição e Concurso Leiteiro do Clube do Cavalo de Rio Novo do Sul - ES. Ranking, produção por categoria e premiações.">
+  <meta name="keywords"
+    content="Concurso Leiteiro, Exposição, Rio Novo do Sul, Clube do Cavalo, pecuária leiteira, produção de leite, ranking vacas">
+  <meta name="author" content="Clube do Cavalo de Rio Novo do Sul">
+  <meta property="og:title" content="2ª Exposição e Concurso Leiteiro do Clube do Cavalo de Rio Novo do Sul" />
+  <meta property="og:description"
+    content="Acompanhe ao vivo: 3 dias de competição, 3 categorias (30kg, 40kg e Estilo Livre), ranking, produção e premiações." />
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header-main">
+      <div class="logo-organizador">
+        <img src="assets/logo-clube-cavalo.png" alt="Logo Clube do Cavalo">
+      </div>
+      <div class="title-evento">
+        <div class="title">
+          2ª Exposição e Concurso Leiteiro
+        </div>
+        <div class="title">
+          Clube do Cavalo de Rio Novo do Sul - ES
+        </div>
+        <div class="subtitle">
+          35 animais • 3 categorias 30kg - 40kg e Estilo Livre • Premiações para os 5 primeiros
+          colocados de cada categoria • 3 dias de competição.
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="badge" title="estado do sistema"><span class="dot"></span>Telão ativo</div>
+      <div class="ordenhas-control">
+        <button class="btn ordenha-btn" data-ordenha="0">1ª</button>
+        <button class="btn ordenha-btn" data-ordenha="1">2ª</button>
+        <button class="btn ordenha-btn" data-ordenha="2">3ª</button>
+        <button class="btn ordenha-btn" data-ordenha="3">4ª</button>
+        <button class="btn ordenha-btn" data-ordenha="4">5ª</button>
+        <button class="btn ordenha-btn" data-ordenha="5">6ª</button>
+        <button class="btn ordenha-btn" data-ordenha="6">7ª</button>
+        <button class="btn ordenha-btn" data-ordenha="7">8ª</button>
+        <button class="btn ordenha-btn" data-ordenha="8">9ª</button>
+      </div>
+      <button class="btn" id="toggle-rotate" title="Pausar/retomar rotação" onclick="toggleRotation()">⏯︎
+        Rotação</button>
+      <div class="clock" id="clock">--:--:--</div>
+    </div>
+  </header>
+
+  <main class="slides" id="slides">
+
+    <section class="slide active" id="slide-0">
+      <div class="grid metrics">
+        <div class="card">
+          <h3>Nº de Animais participantes</h3>
+          <div class="value" id="m-animais">-- </div>
+          <div class="hint">Distribuídos entre 30kg, 40kg e Estilo Livre</div>
+        </div>
+        <div class="card">
+          <h3>Produção total até o momento</h3>
+          <div class="value" id="m-total">-- Kg</div>
+          <div class="hint">Soma das ordenhas até o momento</div>
+        </div>
+        <div class="card">
+          <h3>Média por animal</h3>
+          <div class="value" id="m-media">-- kg</div>
+          <div class="hint">Total ÷ nº de animais</div>
+        </div>
+        <div class="card">
+          <h3>Maior ordenha individual</h3>
+          <div class="value" id="m-maior">-- kg</div>
+          <div class="hint" id="m-maior-desc">—</div>
+        </div>
+      </div>
+      <div style="height:18px"></div>
+      <div class="card">
+        <h3 style="margin-bottom:14px">Destaques das categorias</h3>
+        <div class="grid" style="grid-template-columns:repeat(1,1fr); gap:16px" id="cat-destaques"></div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-2">
+      <h3 style="text-align: center;">Ranking Geral (Top 10 dos Melhores Desempenhos)</h3>
+      <div class="card" style="height:100%; overflow:auto">
+        <div class="rank-list" id="rank-geral"></div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-3">
+      <h3 style="text-align: center;">Ranking Geral (Top 10 por Categoria)</h3>
+      <div class="grid" style="grid-template-columns:repeat(3,1fr); height:100%">
+        <div class="card">
+          <h3>Categoria 30kg</h3>
+          <div class="rank-list" id="rank-30"></div>
+        </div>
+        <div class="card">
+          <h3>Categoria 40kg</h3>
+          <div class="rank-list" id="rank-40"></div>
+        </div>
+        <div class="card">
+          <h3>Categoria Estilo Livre</h3>
+          <div class="rank-list" id="rank-livre"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-4">
+      <div class="card">
+        <h3 id="alvo-cat-30" class="alvo-cat">Ranking Categoria 30kg</h3>
+        <div id="rank-cat-30" class="rank-cat"></div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-5">
+      <div class="card">
+        <h3 id="alvo-cat-40" class="alvo-cat">Ranking Categoria 40kg</h3>
+        <div id="rank-cat-40" class="rank-cat"></div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-6">
+      <div class="card">
+        <h3 id="titulo-cat-livre" class="alvo-cat">Ranking Categoria Estilo Livre</h3>
+        <div id="rank-cat-livre" class="rank-cat"></div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-7">
+      <h3 style="text-align: center;">Resultado Final das CAMPEÃS</h3>
+      <div class="awards" id="awards"></div>
+    </section>
+
+    <section class="slide" id="slide-8">
+      <h3 class="sponsors-title">APOIO:</h3>
+      <div class="sponsors-logo-grid">
+        <img src="assets/logo_prefeitura02.png" alt="logo_prefeitura">
+        <img src="assets/logo_camara02.png" alt="logo_camara">
+        <img src="assets/logo-sicoob.png" alt="sicredi">
+        <img src="assets/logo_selita.png" alt="selita">
+      </div>
+    </section>
+
+    <section class="slide" id="slide-9">
+      <h3>OFERECIMENTO:</h3>
+      <div class="oferecimento-logo">
+        <img src="assets/logo-clube-cavalo.png" alt="Logo do Oferecimento">
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ticker">
+    <div class="badge">ℹ️ Informações</div>
+    <div class="marquee"><span id="marquee-text">SERÃO PREMIADAS AS 5 PRIMEIRAS COLOCADAS DE CADA CATEGORIA AO FINAL DOS
+        3 DIAS DE COMPETIÇÃO *** OS HORÁRIOS DAS ORDENHAS SERÃO CATEGORIA LIVRE ÀS 06H, 14H,E ÀS 22H / CATEGORIAS 30KG E
+        40KG ÀS 07H E ÀS 19H *** REALIZAÇÃO: CLUBE DO CAVALO DE RIO NOVO DO SUL-ES *** APOIO: SICOOB / SELITA /
+        PREFEITURA MUNICIPAL DE RIO NOVO DO SUL / CÂMARA MUNICIPAL DE RIO NOVO DO SUL</span></div>
+    <div class="badge" id="rotate-state">⟳ Rotação: ativa</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
