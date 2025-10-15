@@ -199,7 +199,7 @@ function rankingPorProximidade(categoria, ordenhaIdx, includeDisqualified) {
 
 // ... (O restante das funções de cálculo auxiliares permanece o mesmo)
 function truncar3(n) {
-  return (Math.floor(n * 1000) / 1000).toFixed(3);
+  return (Math.round(n * 1000) / 1000).toFixed(3);
 }
 
 function formatKg(n) {
@@ -387,7 +387,7 @@ function renderAnimalCardsToContainer(container, pageData, cat) {
             ordenhasParaMostrar = ORDENHA_ATUAL + 1;
         }
 
-        card.innerHTML = `<div style="display:flex; justify-content:space-between; align-items:flex-start"><div><div style="font-weight:700; opacity:.8; font-size:14px">#${String(r.rank).padStart(2, '0')}</div><div class="value" style="font-size: clamp(22px, 3.5vw, 32px); margin-top:4px">${r.a.nome}</div><div style="opacity:.8; font-size:14px; margin-top:2px">Produtor: ${r.a.produtor} • ${r.a.baia}</div>${isDisqualified ? '<div class="desclassificada-note">Animal desclassificado</div>' : ''}</div><div style="text-align:right"><div style="font-size: clamp(16px, 2.5vw, 24px); font-weight:900">${formatKg(r.total)}</div><div style="font-size:11px; opacity:.8">Total Acumulado</div></div></div><div style="margin-top:12px; display:flex; justify-content:space-between; align-items:center;"><div><h4 style="margin:0 0 6px; font-size:12px; color:var(--muted)">Produção por ordenha:</h4><div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; font-size:14px; font-weight:500; opacity:.9">${r.a.producao.slice(0, Math.min(ordenhasParaMostrar, r.a.producao.length)).map(p => `<div>${truncar3(p)}</div>`).join('')}</div></div>${diffHtml}</div>`;
+        card.innerHTML = `<div style="display:flex; justify-content:space-between; align-items:flex-start"><div><div style="font-weight:700; opacity:.8; font-size:14px">#${String(r.rank).padStart(2, '0')}</div><div class="value" style="font-size: clamp(22px, 3.5vw, 32px); margin-top:4px">${r.a.nome}</div><div style="opacity:.8; font-size:14px; margin-top:2px">Produtor: ${r.a.produtor} </div><div style="opacity:.8; font-size:14px; margin-top:2px">${r.a.baia}</div>${isDisqualified ? '<div class="desclassificada-note">Animal desclassificado</div>' : ''}</div><div style="text-align:right"><div style="font-size: clamp(16px, 2.5vw, 24px); font-weight:900">${formatKg(r.total)}</div><div style="font-size:11px; opacity:.8">Total Acumulado</div></div></div><div style="margin-top:12px; display:flex; justify-content:space-between; align-items:center;"><div><h4 style="margin:0 0 6px; font-size:12px; color:var(--muted)">Produção por ordenha:</h4><div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; font-size:14px; font-weight:500; opacity:.9">${r.a.producao.slice(0, Math.min(ordenhasParaMostrar, r.a.producao.length)).map(p => `<div>${truncar3(p)}</div>`).join('')}</div></div>${diffHtml}</div>`;
         container.appendChild(card);
     });
 }
