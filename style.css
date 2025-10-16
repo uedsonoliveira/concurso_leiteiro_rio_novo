@@ -218,6 +218,7 @@ header .title-evento{
     display: none;
 }
 
+
 .desclassificada {
   color: var(--danger) !important;
   opacity: 0.9;
@@ -401,6 +402,39 @@ header .title-evento{
     /* Limita a altura para logos não ficarem gigantes */
     object-fit: contain; 
     /* Mantém a proporção da logo */
+}
+
+/* ESTILOS PARA O SLIDE DE ORGANIZAÇÃO */
+#slide-organizacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+#slide-organizacao .organization-title {
+    font-size: clamp(32px, 4vw, 52px);
+    margin: 0;
+}
+
+#slide-organizacao .organization-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px; 
+    width: 90%;
+}
+
+#slide-organizacao .organizer {
+    text-align: center;
+}
+
+#slide-organizacao .organization-logos img {
+    max-height: 250px; 
+    /* Altura generosa para as logos no telão */
+    max-width: 100%;
+    object-fit: contain;
 }
 
 /* ESTILOS PARA O SLIDE DE OFERECIMENTO*/
@@ -662,6 +696,23 @@ header .title-evento{
     #slide-8 .sponsors-logo-grid img {
         max-height: 100px; 
         /* Diminui a altura máxima das logos no mobile */
+    }
+}
+
+/* --- ORGANIZAÇÃO --- */
+@media (max-width: 768px) {
+    #slide-organizacao {
+        gap: 20px;
+        padding: 40px 15px;
+    }
+
+    #slide-organizacao .organization-logos {
+        flex-direction: column; /* Empilha as logos no mobile */
+        gap: 60px; /* Espaço vertical entre elas */
+    }
+
+    #slide-organizacao .organization-logos img {
+        max-height: 80px; /* Altura menor para o mobile */
     }
 }
 

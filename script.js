@@ -40,19 +40,19 @@ let ORDENHA_ATUAL = 0;
     // Exemplo: Preencha com os dados reais do novo concurso
     { id: "01", nome: "Vaca A", categoria: 40, produtor: "Produtor 1", producao: [20.000, 20.000, 20.000, 20.000, 20.000,20.000], baia: "Baia: 01", classificada: true },
 
-    { id: "02", nome: "Vaca B (Livre)", categoria: 'Livre', produtor: "Produtor 2", producao: [20.480, 20.270, 20.350, 28.060, 22.820, 22.610, 23.000, 24.000, 25.000], baia: "Baia: 02", classificada: true },
+    { id: "02", nome: "Vaca B (Livre)", categoria: 'Livre', produtor: "Produtor 2", producao: [21.580, 20.270, 20.340, 28.060, 22.820, 22.610, 23.000, 24.000, 25.000], baia: "Baia: 02", classificada: true },
 
     { id: "03", nome: "Vaca C", categoria: 30, produtor: "Produtor 3", producao: [13.530, 13.380, 14.360, 15.030, 15.690, 16.560], baia: "Baia: 03", classificada: true },
 
     { id: "04", nome: "Vaca D", categoria: 40, produtor: "Produtor 4", producao: [20.000, 20.000, 20.000, 20.000, 21.000, 19.000], baia: "Baia: 04", classificada: true },
 
-    { id: "05", nome: "Vaca E (Livre)", categoria: 'Livre', produtor: "Produtor 5", producao: [20.480, 20.270, 20.350, 28.060, 22.820, 22.610, 23.000, 24.000, 25.000], baia: "Baia: 05", classificada: true },
+    { id: "05", nome: "Vaca E (Livre)", categoria: 'Livre', produtor: "Produtor 5", producao: [20.480, 21.270, 20.350, 28.060, 22.820, 22.620, 23.000, 24.000, 25.100], baia: "Baia: 05", classificada: true },
 
     { id: "06", nome: "Vaca F", categoria: 30, produtor: "Produtor 6", producao: [16.530, 13.380, 14.360, 15.030, 15.690, 16.560], baia: "Baia: 06", classificada: true },
 
     { id: "07", nome: "Vaca G", categoria: 40, produtor: "Produtor 7", producao: [21.050, 19.130, 19.580, 19.600, 20.660, 19.900], baia: "Baia: 07", classificada: true },
 
-    { id: "08", nome: "Vaca H (Livre)", categoria: 'Livre', produtor: "Produtor 8", producao: [20.480, 20.270, 20.350, 28.060, 22.820, 22.610, 23.000, 24.000, 25.000], baia: "Baia: 08", classificada: true },
+    { id: "08", nome: "Vaca H (Livre)", categoria: 'Livre', produtor: "Produtor 8", producao: [21.480, 20.270, 21.350, 28.060, 22.820, 22.610, 23.010, 24.000, 25.000], baia: "Baia: 08", classificada: true },
 
     { id: "09", nome: "Vaca I", categoria: 30, produtor: "Produtor 9", producao: [15.000, 15.000,15.000,15.000,15.000,15.000], baia: "Baia: 09", classificada: true },
 
@@ -68,11 +68,11 @@ let ORDENHA_ATUAL = 0;
 
     { id: "15", nome: "Vaca P", categoria: 40, produtor: "Produtor 15", producao: [21.050, 19.130, 19.780, 19.600, 20.660, 19.900], baia: "Baia: 15", classificada: true },
 
-    { id: "16", nome: "Vaca Q (Livre)", categoria: 'Livre', produtor: "Produtor 16", producao: [20.480, 20.270, 20.350, 28.060, 22.820, 22.610, 23.000, 24.000, 25.000], baia: "Baia: 16", classificada: true },
+    { id: "16", nome: "Vaca Q (Livre)", categoria: 'Livre', produtor: "Produtor 16", producao: [20.480, 20.270, 20.350, 29.060, 22.820, 22.610, 23.000, 24.100, 25.000], baia: "Baia: 16", classificada: true },
 
-    { id: "17", nome: "Vaca R (Livre)", categoria: 'Livre', produtor: "Produtor 17", producao: [20.480, 20.270, 20.350, 28.060, 22.820, 22.610, 23.000, 24.000, 25.000], baia: "Baia: 17", classificada: true },
+    { id: "17", nome: "Vaca R (Livre)", categoria: 'Livre', produtor: "Produtor 17", producao: [20.480, 20.270, 20.350, 28.060, 23.820, 22.610, 23.000, 24.000, 25.010], baia: "Baia: 17", classificada: true },
 
-    { id: "18", nome: "Vaca S (Livre)", categoria: 'Livre', produtor: "Produtor 18", producao: [20.480, 20.270, 20.350, 28.060, 22.820, 22.610, 23.000, 24.000, 24.000], baia: "Baia: 18", classificada: true },
+    { id: "18", nome: "Vaca S (Livre)", categoria: 'Livre', produtor: "Produtor 18", producao: [20.480, 20.270, 20.350, 28.060, 22.820, 23.610, 23.000, 24.000, 24.200], baia: "Baia: 18", classificada: true },
     
     // ... continue preenchendo com os dados
 ];
@@ -257,6 +257,7 @@ function renderMetrica() {
     }); 
 }
 
+/*
 function renderRankingGeral() {
   const cont = document.getElementById('rank-geral');
   cont.innerHTML = '';
@@ -290,6 +291,7 @@ function renderRankingGeral() {
     cont.appendChild(label);
   });
 }
+*/
 
 /**
  * Preenche o slide 3 com os rankings Top 10 de cada categoria, lado a lado.
@@ -447,7 +449,7 @@ function renderAll() {
     }
   removeDynamicSlides();
   renderMetrica();
-  renderRankingGeral();
+  //renderRankingGeral();
   renderRankingsCategorias();
   renderRankingsDetalhados();
   renderPremiacao();
