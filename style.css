@@ -5,14 +5,22 @@
 /* Mantém variáveis de cor originais */
 /* Paleta de cores extraída do cartaz do evento */
 :root {
-  --bg: #3a2d21;       /* Cor de fundo (marrom escuro da madeira) */
-  --panel: #4f3f32;    /* Cor dos painéis e cards (tom de marrom médio) */
-  --accent: #f7b633;    /* Cor principal de destaque (dourado/amarelo das luzes) */
-  --accent-2: #ffd56b; /* Cor secundária de destaque (dourado mais claro para gradientes) */
-  --text: #f5e9d3;      /* Cor do texto principal (bege claro / cor de pergaminho) */
-  --muted: #c2b299;     /* Cor de textos secundários (bege mais escuro e sutil) */
-  --danger: #ff6b6b;    /* Mantive o vermelho, pois é uma cor universal para alertas/desclassificados */
-  --gold: #f7b633;      /* Cor dos prêmios, alinhada com o novo dourado principal */
+  --bg: #3a2d21;
+  /* Cor de fundo (marrom escuro da madeira) */
+  --panel: #4f3f32;
+  /* Cor dos painéis e cards (tom de marrom médio) */
+  --accent: #f7b633;
+  /* Cor principal de destaque (dourado/amarelo das luzes) */
+  --accent-2: #ffd56b;
+  /* Cor secundária de destaque (dourado mais claro para gradientes) */
+  --text: #f5e9d3;
+  /* Cor do texto principal (bege claro / cor de pergaminho) */
+  --muted: #c2b299;
+  /* Cor de textos secundários (bege mais escuro e sutil) */
+  --danger: #ff6b6b;
+  /* Mantive o vermelho, pois é uma cor universal para alertas/desclassificados */
+  --gold: #f7b633;
+  /* Cor dos prêmios, alinhada com o novo dourado principal */
 }
 
 /* Formatação padrão para todos os slides */
@@ -47,20 +55,24 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, .05);
 }
 
-.header-main { 
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly; /* Alinha a logo e o texto verticalmente */
-    gap: 20px;           /* Cria um espaço entre a logo e o texto */
+.header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* Alinha a logo e o texto verticalmente */
+  gap: 20px;
+  /* Cria um espaço entre a logo e o texto */
 }
 
 .logo-organizador img {
-    height: 100px;       /* Define a altura da logo no desktop */
-    display: block;      /* Remove qualquer espaço extra indesejado abaixo da imagem */
+  height: 100px;
+  /* Define a altura da logo no desktop */
+  display: block;
+  /* Remove qualquer espaço extra indesejado abaixo da imagem */
 }
 
 /*título e subtítulo*/
-header .title-evento{
+header .title-evento {
   width: 100%;
   text-align: center;
 }
@@ -159,7 +171,7 @@ header .title-evento{
   opacity: 1;
 }
 
-.hidden{
+.hidden {
   display: none !important;
 }
 
@@ -182,6 +194,10 @@ header .title-evento{
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.slide-logo {
+  color: var(--gold);
 }
 
 .slide.active {
@@ -214,8 +230,10 @@ header .title-evento{
   margin-bottom: 30px;
 }
 
-#slide-4, #slide-5, #slide-6 {
-    display: none;
+#slide-4,
+#slide-5,
+#slide-6 {
+  display: none;
 }
 
 
@@ -366,105 +384,111 @@ header .title-evento{
 
 /* ESTILOS PARA O SLIDE DE PATROCINIO */
 #slide-8 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    /* Centraliza verticalmente */
-    align-items: center;
-    /* Centraliza horizontalmente */
-    gap: 40px;
+  display: flex;
+  flex-direction: column;
+  /* Centraliza verticalmente */
+  align-items: center;
+  /* Centraliza horizontalmente */
+  gap: 30px;
 }
 
 #slide-8 .sponsors-title {
-    font-size: clamp(32px, 4vw, 52px); 
-    /* Título maior */
-    margin: 0;
-    text-align: center;
+  font-size: clamp(32px, 4vw, 52px);
+  /* Título maior */
+  margin: 0;
+  text-align: center;
 }
 
 #slide-8 .sponsors-logo-grid {
-    display: grid;
-    /* Cria 2 colunas no desktop, mas pode ser ajustado para mais */
-    grid-template-columns: 1fr 1fr; 
-    gap: 50px; 
-    /* Espaçamento grande entre as logos */
-    width: 80%; 
-    /* O grid ocupa 80% da largura da tela */
-    align-items: center; 
-    /* Centraliza as logos verticalmente em suas células */
-    justify-content: center;
+  display: grid;
+  /* Cria 3 colunas no desktop, mas pode ser ajustado para mais */
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px 60px;
+  /* Espaço vertical e horizontal entre logos */
+  width: 85%;
+  /* O grid ocupa 85% da largura da tela */
+  max-width: 1200px;
+  /* Limite máximo para o grid não ficar gigante em telões*/
+  align-items: center;
+  /* Centraliza as logos verticalmente em suas células */
+  justify-content: center;
+  margin: 0 auto;
+  /* Centraliza o grid */
 }
 
 #slide-8 .sponsors-logo-grid img {
-    width: 100%; 
-    /* A logo ocupa toda a largura da sua célula no grid */
-    max-height: 200px;
-    /* Limita a altura para logos não ficarem gigantes */
-    object-fit: contain; 
-    /* Mantém a proporção da logo */
+  width: 100%;
+  /* A logo ocupa toda a largura da sua célula no grid */
+  max-height: 130px;
+  /* Limita a altura para logos não ficarem gigantes */
+  object-fit: contain;
+  /* Mantém a proporção da logo */
+  display: block;
+  /* Garante alinhamento correto */
+  margin: 0 auto;
+  /* Centraliza a imagem se a célula for maior */
 }
 
 /* ESTILOS PARA O SLIDE DE ORGANIZAÇÃO */
 #slide-organizacao {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 #slide-organizacao .organization-title {
-    font-size: clamp(32px, 4vw, 52px);
-    margin: 0;
+  font-size: clamp(32px, 4vw, 52px);
+  margin: 0;
 }
 
 #slide-organizacao .organization-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 80px; 
-    width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  width: 90%;
 }
 
 #slide-organizacao .organizer {
-    text-align: center;
+  text-align: center;
 }
 
 #slide-organizacao .organization-logos img {
-    max-height: 250px; 
-    /* Altura generosa para as logos no telão */
-    max-width: 100%;
-    object-fit: contain;
+  max-height: 250px;
+  /* Altura generosa para as logos no telão */
+  max-width: 100%;
+  object-fit: contain;
 }
 
 /* ESTILOS PARA O SLIDE DE OFERECIMENTO*/
 #slide-9 {
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 #slide-9 h3 {
-    /* Título maior e responsivo */
-    font-size: clamp(32px, 4vw, 52px); 
-    margin: 0; /* Remove para usar o 'gap'*/
+  /* Título maior e responsivo */
+  font-size: clamp(32px, 4vw, 52px);
+  margin: 0;
+  /* Remove para usar o 'gap'*/
 }
 
 #slide-9 .oferecimento-logo {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 #slide-9 .oferecimento-logo img {
-    /* A imagem ocupará até 80% da largura ou 65% da altura da tela, o que for menor */
-    max-width: 80%;
-    max-height: 65vh;
-    height: auto; 
-    /* Mantém a proporção da imagem */
-    object-fit: contain;
-    /* Garante que a imagem não seja esticada ou cortada */
+  /* A imagem ocupará até 80% da largura ou 65% da altura da tela, o que for menor */
+  max-width: 80%;
+  max-height: 65vh;
+  height: auto;
+  /* Mantém a proporção da imagem */
+  object-fit: contain;
+  /* Garante que a imagem não seja esticada ou cortada */
 }
 
 .ticker {
@@ -543,7 +567,7 @@ header .title-evento{
   box-sizing: border-box;
 }
 
-.alvo-cat{
+.alvo-cat {
   text-align: center;
 }
 
@@ -566,9 +590,9 @@ header .title-evento{
     gap: 8px;
   }
 
-.ordenhas-control {
-  display: flex;
-  gap: 8px;
+  .ordenhas-control {
+    display: flex;
+    gap: 8px;
   }
 
   .rank-cat {
@@ -595,19 +619,24 @@ header .title-evento{
     max-height: 60px;
   }
 
- .header-main {
-        flex-direction: column; /* Empilha a logo sobre o texto */
-        gap: 15px;              /* Ajusta o espaço vertical */
-        align-items: center;    /* Centraliza o bloco da logo e do texto */
-    }
+  .header-main {
+    flex-direction: column;
+    /* Empilha a logo sobre o texto */
+    gap: 15px;
+    /* Ajusta o espaço vertical */
+    align-items: center;
+    /* Centraliza o bloco da logo e do texto */
+  }
 
-    .title-evento {
-        text-align: center;     /* Garante que todo o texto do evento fique centralizado */
-    }
+  .title-evento {
+    text-align: center;
+    /* Garante que todo o texto do evento fique centralizado */
+  }
 
-    .logo-organizador img {
-        height: 80px;           /* Define uma altura menor para a logo no mobile */
-    }
+  .logo-organizador img {
+    height: 80px;
+    /* Define uma altura menor para a logo no mobile */
+  }
 
   .right {
     justify-content: center;
@@ -647,9 +676,9 @@ header .title-evento{
     width: 100%;
   }
 
-  .awards{
+  .awards {
     color: #ff6b6b;
-  } 
+  }
 
   .partner-column {
     width: 100%;
@@ -678,56 +707,55 @@ header .title-evento{
     display: none !important;
   }
 
-/* --- PATROCINIO --- */
-@media (max-width: 768px) {
-    #slide-8 {
-        gap: 20px;
-        padding: 40px 15px;
-        /* Adiciona respiro vertical e horizontal */
-    }
-    
-    #slide-8 .sponsors-logo-grid {
-        width: 100%; 
-        /* Ocupa a largura total no mobile */
-        /* Mantém as 2 colunas, mas com espaçamento menor */
-        gap: 20px;
-    }
+  /* --- APOIO --- */
+  #slide-8 {
+    gap: 20px;
+    padding: 30px 15px;
+    /* Adiciona respiro vertical e horizontal */
+  }
 
-    #slide-8 .sponsors-logo-grid img {
-        max-height: 100px; 
-        /* Diminui a altura máxima das logos no mobile */
-    }
-}
+  #slide-8 .sponsors-logo-grid {
+    width: 80%;
+    /* Ocupa a largura total no mobile */
+    grid-template-columns: 1fr;
+    /* Mantém as 2 colunas, mas com espaçamento menor */
+    gap: 40px;
+  }
 
-/* --- ORGANIZAÇÃO --- */
-@media (max-width: 768px) {
-    #slide-organizacao {
-        gap: 20px;
-        padding: 40px 15px;
-    }
+  #slide-8 .sponsors-logo-grid img {
+    max-height: 80px;
+    /* Diminui a altura máxima das logos no mobile */
+    width: 70%;
+  }
 
-    #slide-organizacao .organization-logos {
-        flex-direction: column; /* Empilha as logos no mobile */
-        gap: 60px; /* Espaço vertical entre elas */
-    }
+  /* --- ORGANIZAÇÃO --- */
+  #slide-organizacao {
+    gap: 20px;
+    padding: 40px 15px;
+  }
 
-    #slide-organizacao .organization-logos img {
-        max-height: 80px; /* Altura menor para o mobile */
-    }
-}
+  #slide-organizacao .organization-logos {
+    flex-direction: column;
+    /* Empilha as logos no mobile */
+    gap: 60px;
+    /* Espaço vertical entre elas */
+  }
+
+  #slide-organizacao .organization-logos img {
+    max-height: 80px;
+    /* Altura menor para o mobile */
+  }
 
   /* --- OFERECIMENTO --- */
-@media (max-width: 768px) {
-    #slide-9 {
-        /* No mobile, o slide já tem o comportamento de bloco, só ajustamos o espaçamento */
-        gap: 20px;
-        padding: 40px 0; /* Adiciona um respiro em cima e embaixo */
-    }
+  #slide-9 {
+    /* No mobile, o slide já tem o comportamento de bloco, só ajustamos o espaçamento */
+    gap: 20px;
+    padding: 40px 0;
+    /* Adiciona um respiro em cima e embaixo */
+  }
 
-    #slide-9 .oferecimento-logo img {
-        /* No mobile, a imagem ocupará 80% da largura da tela */
-        max-width: 80%;
-    }
-}
-
+  #slide-9 .oferecimento-logo img {
+    /* No mobile, a imagem ocupará 80% da largura da tela */
+    max-width: 80%;
+  }
 }
