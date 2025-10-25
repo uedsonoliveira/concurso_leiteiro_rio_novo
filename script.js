@@ -38,61 +38,61 @@ let ORDENHA_ATUAL = 0;
 
 const DATA = [
   // Exemplo: Preencha com os dados reais do novo concurso
-  { id: "01", nome: "Maravilha", categoria: 40, produtor: "Antônio / Anderson / Kaique", producao: [18.540, 18.870], baia: "Baia: 01", classificada: true },
+  { id: "01", nome: "Maravilha", categoria: 40, produtor: "Antônio / Anderson / Kaique", producao: [18.540, 18.870, 18.450], baia: "Baia: 01", classificada: true },
 
-  { id: "02", nome: "Jurema", categoria: 40, produtor: "Bruno Rohor", producao: [21.530, 17.290], baia: "Baia: 02", classificada: true },
+  { id: "02", nome: "Jurema", categoria: 40, produtor: "Bruno Rohor", producao: [21.530, 17.290, 19.220], baia: "Baia: 02", classificada: true },
 
-  { id: "03", nome: "Fantasia", categoria: 30, produtor: "Leonardo Blemoek / Gabriel Freitas", producao: [17.050, 15.680], baia: "Baia: 03", classificada: true },
+  { id: "03", nome: "Fantasia", categoria: 30, produtor: "Leonardo Blemoek / Gabriel Freitas", producao: [17.050, 15.680, 14.290], baia: "Baia: 03", classificada: true },
 
-  { id: "04", nome: "Arizona", categoria: 30, produtor: "Lucas Sartori", producao: [14.850, 15.480], baia: "Baia: 04", classificada: true },
+  { id: "04", nome: "Arizona", categoria: 30, produtor: "Lucas Sartori", producao: [14.850, 15.480, 13.910], baia: "Baia: 04", classificada: true },
 
   { id: "05", nome: "Rose", categoria: 'Livre', produtor: "Emílio Vieira Paulino", producao: [27.866, 22.200, 25.660, 27.880], baia: "Baia: 05", classificada: true },
 
   { id: "06", nome: "Colombiana", categoria: 'Livre', produtor: "Emílio Vieira Paulino", producao: [19.492, 17.980, 18.360, 20.960], baia: "Baia: 06", classificada: true },
 
-  { id: "07", nome: "Heliacea ", categoria: 40, produtor: "Wallace Miranda", producao: [18.604, 18.700], baia: "Baia: 07", classificada: true },
+  { id: "07", nome: "Heliacea ", categoria: 40, produtor: "Wallace Miranda", producao: [18.604, 18.700, 20.390], baia: "Baia: 07", classificada: true },
 
-  { id: "08", nome: "Larissa", categoria: 30, produtor: "Leonardo Massolari Bernardo", producao: [15.676, 14.840], baia: "Baia: 08", classificada: true },
+  { id: "08", nome: "Larissa", categoria: 30, produtor: "Leonardo Massolari Bernardo", producao: [15.676, 14.840, 14.510], baia: "Baia: 08", classificada: true },
 
-  { id: "09", nome: "Paróquia", categoria: 40, produtor: "Tiago Mota de Lima", producao: [19.444, 20.060], baia: "Baia: 09", classificada: true },
+  { id: "09", nome: "Paróquia", categoria: 40, produtor: "Tiago Mota de Lima", producao: [19.444, 20.060, 20.230], baia: "Baia: 09", classificada: true },
 
-  { id: "10", nome: "Pintura", categoria: 40, produtor: "Rogério Ribeiro Araújo", producao: [22.730, 18.020], baia: "Baia: 10", classificada: true },
+  { id: "10", nome: "Pintura", categoria: 40, produtor: "Rogério Ribeiro Araújo", producao: [22.730, 18.020, 20.810], baia: "Baia: 10", classificada: true },
 
-  { id: "11", nome: "Stefanea", categoria: 30, produtor: "Ulisses Matos", producao: [14.670, 14.060], baia: "Baia: 11", classificada: true },
+  { id: "11", nome: "Stefanea", categoria: 30, produtor: "Ulisses Matos", producao: [14.670, 14.060, 14.900], baia: "Baia: 11", classificada: true },
 
-  { id: "12", nome: "Mamona", categoria: 30, produtor: "Franco Castelione", producao: [12.120, 12.560], baia: "Baia: 12", classificada: true },
+  { id: "12", nome: "Mamona", categoria: 30, produtor: "Franco Castelione", producao: [12.120, 12.560, 13.460], baia: "Baia: 12", classificada: true },
 
-  { id: "13", nome: "Manquetinha", categoria: 40, produtor: "Diogo Castelione", producao: [21.540, 16.190], baia: "Baia: 13", classificada: true },
+  { id: "13", nome: "Manquetinha", categoria: 40, produtor: "Diogo Castelione", producao: [21.540, 16.190, 15.270], baia: "Baia: 13", classificada: true },
 
-  { id: "14", nome: "Luara", categoria: 40, produtor: "Jhon Rhuon Neves", producao: [19.790, 19.820], baia: "Baia: 14", classificada: true },
+  { id: "14", nome: "Luara", categoria: 40, produtor: "Jhon Rhuon Neves", producao: [19.790, 19.820, 20.950], baia: "Baia: 14", classificada: true },
 
-  { id: "15", nome: "Roxinha", categoria: 40, produtor: "Waldeir Hemerly", producao: [20.570, 16.970], baia: "Baia: 15", classificada: true },
+  { id: "15", nome: "Roxinha", categoria: 40, produtor: "Waldeir Hemerly", producao: [20.570, 16.970, 17.230], baia: "Baia: 15", classificada: true },
 
-  { id: "16", nome: "Esperança", categoria: 30, produtor: "Waldeir Hemerly", producao: [16.070, 15.110], baia: "Baia: 16", classificada: true },
+  { id: "16", nome: "Esperança", categoria: 30, produtor: "Waldeir Hemerly", producao: [16.070, 15.110, 15.540], baia: "Baia: 16", classificada: true },
 
-  { id: "17", nome: "Estrela", categoria: 30, produtor: "Waldeir Hemerly", producao: [13.936, 16.120], baia: "Baia: 17", classificada: true },
+  { id: "17", nome: "Estrela", categoria: 30, produtor: "Waldeir Hemerly", producao: [13.936, 16.120, 15.360], baia: "Baia: 17", classificada: true },
 
-  { id: "18", nome: "Xita", categoria: 30, produtor: "Orlandina Hemerly", producao: [20.234, 9.240], baia: "Baia: 18", classificada: true },
+  { id: "18", nome: "Xita", categoria: 30, produtor: "Orlandina Hemerly", producao: [20.234, 9.240, 14.930], baia: "Baia: 18", classificada: true },
 
-  { id: "19", nome: "Paloma", categoria: 30, produtor: "Rondineli Moreira Pinheiro", producao: [14.240, 13.110], baia: "Baia: 19", classificada: true },
+  { id: "19", nome: "Paloma", categoria: 30, produtor: "Rondineli Moreira Pinheiro", producao: [14.240, 13.110, 12.630], baia: "Baia: 19", classificada: true },
 
-  { id: "20", nome: "Carinhosa", categoria: 30, produtor: "Gilmar Amaro", producao: [14.590, 13.460], baia: "Baia: 20", classificada: true },
+  { id: "20", nome: "Carinhosa", categoria: 30, produtor: "Gilmar Amaro", producao: [14.590, 13.460, 13.300], baia: "Baia: 20", classificada: true },
 
-  { id: "21", nome: "Donzela", categoria: 40, produtor: "Lindomar M. Pinheiro", producao: [19.654, 19.990], baia: "Baia: 21", classificada: true },
+  { id: "21", nome: "Donzela", categoria: 40, produtor: "Lindomar M. Pinheiro", producao: [19.654, 19.990, 18.560], baia: "Baia: 21", classificada: true },
 
-  { id: "22", nome: "Pintada", categoria: 40, produtor: "Balbino Castelari", producao: [18.240, 18.510], baia: "Baia: 22", classificada: true },
+  { id: "22", nome: "Pintada", categoria: 40, produtor: "Balbino Castelari", producao: [18.240, 18.510, 19.500], baia: "Baia: 22", classificada: true },
 
-  { id: "23", nome: "Serena", categoria: 30, produtor: "Balbino Castelari", producao: [13.960, 16.900], baia: "Baia: 23", classificada: true },
+  { id: "23", nome: "Serena", categoria: 30, produtor: "Balbino Castelari", producao: [13.960, 16.900, 14.250], baia: "Baia: 23", classificada: true },
 
-  { id: "24", nome: "Vingadora", categoria: 40, produtor: "Bruno Rohor", producao: [16.602, 17.560], baia: "Baia: 24", classificada: true },
+  { id: "24", nome: "Vingadora", categoria: 40, produtor: "Bruno Rohor", producao: [16.602, 17.560, 12.890], baia: "Baia: 24", classificada: true },
 
   { id: "25", nome: "Pretinha B.", categoria: 'Livre', produtor: "Edson Michael C. Rohor", producao: [27.176, 22.720, 23.790, 22.360], baia: "Baia: 25", classificada: true },
 
-  { id: "26", nome: "Jabaquara", categoria: 40, produtor: "Eralto Rohor", producao: [22.114, 15.720], baia: "Baia: 26", classificada: true },
+  { id: "26", nome: "Jabaquara", categoria: 40, produtor: "Eralto Rohor", producao: [22.114, 15.720, 22.240], baia: "Baia: 26", classificada: true },
 
-  { id: "27", nome: "Vanusa", categoria: 30, produtor: "André Oliveira / Lindésio Oliveira", producao: [16.550, 15.900], baia: "Baia: 27", classificada: true },
+  { id: "27", nome: "Vanusa", categoria: 30, produtor: "André Oliveira / Lindésio Oliveira", producao: [16.550, 15.900, 16.680], baia: "Baia: 27", classificada: true },
 
-  { id: "28", nome: "Jamanta", categoria: 40, produtor: "André Oliveira / Lidésio Oliveira", producao: [20.360, 19.420], baia: "Baia: 28", classificada: true },
+  { id: "28", nome: "Jamanta", categoria: 40, produtor: "André Oliveira / Lidésio Oliveira", producao: [20.360, 19.420, 20.500], baia: "Baia: 28", classificada: true },
 
   //Modelo a ser seguido de preenchimento
   //{ id: "18", nome: "Vaca S (Livre)", categoria: 'Livre', produtor: "Produtor 18", producao: [20.480, 20.270, 20.350, 28.060, 22.820, 23.610, 23.000, 24.000, 24.200], baia: "Baia: 18", classificada: true },
