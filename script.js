@@ -46,7 +46,7 @@ const DATA = [
 
   { id: "04", nome: "Arizona", categoria: 30, produtor: "Lucas Sartori", producao: [14.850, 15.480, 13.910, 17.120], baia: "Baia: 04", classificada: true },
 
-  { id: "05", nome: "Rose", categoria: 'Livre', produtor: "Emílio Vieira Paulino", producao: [27.866, 22.200, 25.660, 27.880, 29.590, 0.000], baia: "Baia: 05", classificada: true },
+  { id: "05", nome: "Rose", categoria: 'Livre', produtor: "Emílio Vieira Paulino", producao: [27.866, 22.200, 25.660, 27.880, 29.590, 24.710], baia: "Baia: 05", classificada: true },
 
   { id: "06", nome: "Colombiana", categoria: 'Livre', produtor: "Emílio Vieira Paulino", producao: [19.492, 17.980, 18.360, 20.960, 23.740, 0.000], baia: "Baia: 06", classificada: true },
 
@@ -86,7 +86,7 @@ const DATA = [
 
   { id: "24", nome: "Vingadora", categoria: 40, produtor: "Bruno Rohor", producao: [16.602, 17.560, 12.890, 7.490], baia: "Baia: 24", classificada: true },
 
-  { id: "25", nome: "Pretinha B.", categoria: 'Livre', produtor: "Edson Michael C. Rohor", producao: [27.176, 22.720, 23.790, 22.360, 29.870, 0.000], baia: "Baia: 25", classificada: true },
+  { id: "25", nome: "Pretinha B.", categoria: 'Livre', produtor: "Edson Michael C. Rohor", producao: [27.176, 22.720, 23.790, 22.360, 29.870, 29.430], baia: "Baia: 25", classificada: true },
 
   { id: "26", nome: "Jabaquara", categoria: 40, produtor: "Eralto Rohor", producao: [22.114, 15.720, 22.240, 18.760], baia: "Baia: 26", classificada: true },
 
