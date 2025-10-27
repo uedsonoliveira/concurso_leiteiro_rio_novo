@@ -40,7 +40,7 @@ const DATA = [
   // Exemplo: Preencha com os dados reais do novo concurso
   { id: "01", nome: "Maravilha", categoria: 40, produtor: "Antônio / Anderson / Kaique", producao: [18.540, 18.870, 18.450, 19.650, 20.470, 26.350], baia: "Baia: 01", classificada: true },
 
-  { id: "02", nome: "Jurema", categoria: 40, produtor: "Bruno Rohor", producao: [21.530, 17.290, 19.220, 19.960, 20.000, 21.680], baia: "Baia: 02", classificada: true },
+  { id: "02", nome: "Jurema", categoria: 40, produtor: "Heitor e Elisa / Lino Costa", producao: [21.530, 17.290, 19.220, 19.960, 20.000, 21.680], baia: "Baia: 02", classificada: true },
 
   { id: "03", nome: "Fantasia", categoria: 30, produtor: "Leonardo Blemoek / Gabriel Freitas", producao: [17.050, 15.680, 14.290, 15.040, 19.460, 5.230], baia: "Baia: 03", classificada: true },
 
