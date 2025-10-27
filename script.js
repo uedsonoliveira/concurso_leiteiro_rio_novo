@@ -531,7 +531,7 @@ function removeDynamicSlides() {
 let current = 0;
 let totalSlides = 0;
 let rotating = true;
-const ROTATE_MS = 30000;
+const ROTATE_MS = 20000;
 let timer = null;
 
 function showSlide(i) {
